@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Understanding Tetracycline Pharmacokinetics</title>
+    <style>
+        /* CSS styles for the blog post */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .graph-container {
+            margin-top: 20px;
+        }
+
+        .graph {
+            margin-bottom: 20px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .code-snippet {
+            width: 45%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+
+        .image-container {
+            width: 45%;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .references {
+            margin-top: 40px;
+            font-size: 16px;
+        }
+
+        .references ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+         /* Responsive Design */
+         @media only screen and (max-width: 768px) {
+            .box-container {
+                flex-direction: column;
+            }
+
+            .code-snippet,
+            .image-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+         /* Footer Styles */
+         footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px 0;
+            background-color: #f7f7f7;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding Tetracycline Pharmacokinetics</h1>
+
+    <h2>Introduction</h2>
+    <p>
+        In this blog post, we will delve into the fascinating world of pharmacokinetics by analyzing the Tetracycline1 dataset.
+        Tetracycline is a commonly prescribed antibiotic that has been widely used for several decades.
+        By exploring this dataset, we will gain insights into the pharmacokinetic properties of tetracycline, including its absorption, distribution, metabolism, and elimination.
+        Through data analysis and visualizations, we will unravel the behavior of this important antibiotic within the body.
+    </p>
+
+    <h2>Sourcing the Dataset</h2>
+    <p>
+        For this analysis, we will utilize the Tetracycline1 dataset, which contains information about the pharmacokinetics of tetracycline in different individuals.
+        The dataset can be obtained from [source name] or [link to dataset].
+    </p>
+
+    <h2>Question 1: What is the absorption profile of tetracycline?</h2>
+    <p>
+        To understand how tetracycline is absorbed into the body, we will analyze the data related to its concentration in the bloodstream over time.
+        By visualizing the absorption profile, we can determine how quickly the antibiotic enters the systemic circulation after administration.
+    </p>
+
+    <div class="box-container">
+        <div class="code-snippet">
+            <h3>Code Snippet 1:</h3>
+            <pre><code>
+                import csv
+                import matplotlib.pyplot as plt
+                
+                # Read the Tetracycline1 dataset from a CSV file
+                with open('tetracycline1.csv', 'r') as file:
+                    reader = csv.DictReader(file)
+                    headers = reader.fieldnames
+                    if 'conc' not in headers:
+                        print("Error: 'conc' column
+                         not found in the dataset.")
+                        print("Headers:", headers)
+                        exit()
+                
+                    time = []
+                    concentration = []
+                    for row in reader:
+                        time.append(float(row['Time']))
+                        concentration.append(float(row['conc']))
+                
+                # Create a line plot of tetracycline
+                 concentration over time
+                plt.plot(time, concentration)
+                plt.xlabel('Time (hours)')
+                plt.ylabel('Tetracycline Concentration (mg/L)')
+                plt.title('Tetracycline Absorption Profile')
+                plt.show()
+                
+            </code></pre>
+        </div>
+        <div class="image-container">
+            <h3>Visualization 1: Tetracycline Absorption Profile</h3>
+            <img src="absorption of tetracycline.png" alt="Tetracycline Absorption Profile">
+            <p>Description: This line plot depicts the concentration of tetracycline in the bloodstream over time, providing insights into its absorption behavior. It showcases how quickly the antibiotic reaches its peak concentration after administration.</p>
+        </div>
+    </div>
+
+    <h2>Question 2: How is tetracycline eliminated from the body?</h2>
+    <p>
+        To gain insights into the elimination of tetracycline, we will examine the data related to its concentration decline over time.
+        By visualizing the elimination profile, we can understand the drug's half-life and the rate at which it is cleared from the body.
+    </p>
+
+    <div class="box-container">
+        <div class="code-snippet">
+            <h3>Code Snippet 2:</h3>
+            <pre><code>
+                import csv
+                import matplotlib.pyplot as plt
+                
+                # Read the Tetracycline1 dataset from a CSV file
+                with open('tetracycline1.csv', 'r') as file:
+                    reader = csv.DictReader(file)
+                    headers = reader.fieldnames
+                    if 'conc' not in headers:
+                        print("Error: 'conc' column not
+                         found in the dataset.")
+                        print("Headers:", headers)
+                        exit()
+                
+                    time = []
+                    concentration = []
+                    for row in reader:
+                        time.append(float(row['Time']))
+                        concentration.append(float(row['conc']))
+                
+                # Create a line plot of tetracycline
+                 concentration decline over time
+                plt.plot(time, concentration)
+                plt.xlabel('Time (hours)')
+                plt.ylabel('Tetracycline Concentration (mg/L)')
+                plt.title('Tetracycline Elimination Profile')
+                plt.show()
+                
+            </code></pre>
+        </div>
+        <div class="image-container">
+            <h3>Visualization 2: Tetracycline Elimination Profile</h3>
+            <img src="elimination of tetracycline.png" alt="Tetracycline Elimination Profile">
+            <p>Description: This line plot illustrates the decline in tetracycline concentration over time, shedding light on its elimination from the body. The graph allows us to observe the rate at which the antibiotic is cleared from the systemic circulation.</p>
+        </div>
+    </div>
+
+    <h2>Link to Code Repository</h2>
+    <p>You can find the code used for this analysis on my GitHub repository <a href="https://github.com/omodeetife1">here</a>.</p>
+
+    <h2>Conclusion</h2>
+    <p>
+        Analyzing the Tetracycline1 dataset has provided valuable insights into the pharmacokinetics of tetracycline, a widely used antibiotic.
+        By exploring its absorption and elimination profiles, we were able to understand how the drug behaves within the body over time.
+        This information is crucial for determining the appropriate dosage regimens and ensuring effective therapeutic outcomes.
+        Pharmacokinetic analysis plays a vital role in the field of pharmaceutical sciences, helping researchers and healthcare professionals optimize drug therapies.
+        The Tetracycline1 dataset serves as a valuable resource for studying the pharmacokinetics of tetracycline and expanding our knowledge of its behavior in the human body.
+    </p>
+
+    <h2>References</h2>
+    <ul>
+        <li>[Source Name/Link to Dataset]</li>
+        <li>[Additional resources or references related to tetracycline pharmacokinetics]</li>
+    </ul>
+
+    <div class="cta-button-container">
+        <a class="cta-button" href="#">Share on Social Media</a>
+        <a class="cta-button" href="#">Download Dataset</a>
+    </div>
+
+    <div class="references">
+        <h2>References</h2>
+        <ul>
+            <li>[Source Name/Link to Dataset]</li>
+            <li>[Additional resources or references related to tetracycline pharmacokinetics]</li>
+        </ul>
+    </div>
+</body>
+<footer>
+    <p>&copy; 2023 Ayomide Omodara. All rights reserved.</p>
+</footer>
+</html>
